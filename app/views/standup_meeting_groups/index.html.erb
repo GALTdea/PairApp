@@ -8,8 +8,21 @@
   <h1 class="font-bold text-3xl">My Standups</h1>
   <div id="my-standup-meeting-groups" class="flex flex-row gap-x-5 pl-5 pt-5 pb-5">
     <%= render StandupMeetingGroup::JoinedCardComponent.with_collection(@my_standup_meeting_groups, current_user:) %>
+    <%# the .with_collection method is a method that: 
+      1. takes a collection of objects
+      2. iterates over the collection of objects
+      3. for each object in the collection, it instantiates a new component instance
+      4. it passes the object to the component instance
+      5. it renders the component instance
+      6. it returns the rendered component instances as a string
+      in this case, the collection of objects is @my_standup_meeting_groups, which is an array of standup_meeting_group objects
+      when we call .with_collection(@my_standup_meeting_groups) we are iterating over the array of standup_meeting_group objects
+      for each standup_meeting_group object in the array, we are instantiating a new StandupMeetingGroup::JoinedCardComponent instance
+      we are passing the standup_meeting_group object to the StandupMeetingGroup::JoinedCardComponent instance
+      we are rendering the StandupMeetingGroup::JoinedCardComponent instance
+     %>
   </div>
-</div>
+</div> 
 
 <div class="flex flex-col">
   <h1 class="font-bold text-3xl">Find a Standup</h1>

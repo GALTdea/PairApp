@@ -64,6 +64,8 @@ class User < ApplicationRecord
   has_many :standup_meeting_groups_users, dependent: :destroy, class_name: 'StandupMeetingGroupUser'
   has_many :standup_meetings, dependent: :destroy
   has_many :standup_meeting_groups, through: :standup_meeting_groups_users
+  # to query a specific standup_meeting_group_user, we can do this:
+  # standup_meeting_group_user = user.standup_meeting_groups_users.find_by(standup_meeting_group_id: standup_meeting_group.id)
 
   scope :invitee_select_for, ->(user) { User.excluding(user).pluck(:email, :id) }
 
